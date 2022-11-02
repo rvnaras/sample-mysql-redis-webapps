@@ -2,7 +2,7 @@
 
  - Kubernetes Engine : EKS/GKE
  - Redis : latest
- - MySQL : AWS RDS/ GCloud CloudSQL
+ - MySQL : AWS RDS/GCloud CloudSQL
  - Sample WebApps : credits to CodingShoding with NJ (https://www.youtube.com/c/CodingShodingwithNJ)
  - CI : JenkinsCI
  - CD : ArgoCD
