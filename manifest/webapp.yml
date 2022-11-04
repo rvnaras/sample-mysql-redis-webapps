@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: webapp
+spec:
+  externalTrafficPolicy: Cluster
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ports:
+  - protocol: TCP
+    targetPort: 80
+    port: 80
+  selector:
+    app: webapp
+    tier: frontend
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+        tier: frontend
+    spec:
+      containers:
+      - name: webapp
+        image: ravennaras/wlb:webappv1
+        ports:
+        - containerPort: 80
+          name: webapp
