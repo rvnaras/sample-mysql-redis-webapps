@@ -51,7 +51,7 @@ pipeline {
         container('docker') {
             sh '''
               echo 'check deployment image vulnerabilities'
-              // docker run --network host aquasec/trivy image ravennaras/wlb:apps --security-checks vuln
+              // docker run --network host aquasec/trivy image ravennaras/wlb:webapp --security-checks vuln
               // docker run --network host aquasec/trivy image ravennaras/wlb:redis --security-checks vuln
               // skipped security test
               docker push ravennaras/wlb:webapp
