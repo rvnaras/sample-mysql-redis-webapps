@@ -40,7 +40,7 @@ pipeline {
             sh '''
               echo 'building deployment image'
               echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
-              docker build -f ./apps/Dockerfile.apps -t ravennaras/wlb:apps . --network host 
+              docker build -f ./webapp/Dockerfile.webapp -t ravennaras/wlb:webapp . --network host 
               docker build -f ./redis/Dockerfile.redis -t ravennaras/wlb:redis . --network host
             '''
         }
@@ -54,7 +54,7 @@ pipeline {
               // docker run --network host aquasec/trivy image ravennaras/wlb:apps --security-checks vuln
               // docker run --network host aquasec/trivy image ravennaras/wlb:redis --security-checks vuln
               // skipped security test
-              docker push ravennaras/wlb:apps
+              docker push ravennaras/wlb:webapp
               docker push ravennaras/wlb:redis
             '''
         }
