@@ -1,6 +1,6 @@
 # Sample Kubernetes Deployment Simple WebApps with Redis, Database, and CI/CD
 
- - Kubernetes Engine : EKS
+ - Kubernetes Engine : GKE
  - Redis : latest
  - MySQL : AWS RDS
  - Sample WebApps : credit to CodingShoding with NJ (https://www.youtube.com/c/CodingShodingwithNJ)
