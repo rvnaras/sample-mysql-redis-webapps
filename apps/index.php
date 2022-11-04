@@ -40,7 +40,7 @@
               }
 
            echo "<tr><td colspan = '3' align = 'center'><h2>$data_source</h2></td></tr>";
-           echo "<tr><th>Employee Id</th><th>First Name</th><th>Last Name</th></tr>";
+           echo "<tr><th>EID</th><th>First Name</th><th>Last Name</th></tr>";
 
            foreach ($data as $record) {
               echo '<tr>';
