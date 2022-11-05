@@ -15,8 +15,8 @@ pipeline {
       steps {
             sh '''
               echo 'building deployment image'
-              docker build -f ./redis/Dockerfile.redis -t ravennaras/wlb:redis-$GIT_COMMIT_SHORT . --network host
-              docker build -f ./apps/Dockerfile.apps -t ravennaras/wlb:webapp-$GIT_COMMIT_SHORT . --network host
+              docker build -f ./redis/Dockerfile.redis -t ravennaras/wlb:redis-latest . --network host
+              docker build -f ./apps/Dockerfile.apps -t ravennaras/wlb:webapp-latest . --network host
             '''
       }
     }
@@ -24,8 +24,8 @@ pipeline {
       steps {
             sh '''
               echo 'check deployment image for vulnerabilities and push them to hub'
-              docker push ravennaras/wlb:redis-$GIT_COMMIT_SHORT
-              docker push ravennaras/wlb:webapp-$GIT_COMMIT_SHORT
+              docker push ravennaras/wlb:redis-latest
+              docker push ravennaras/wlb:webapp-latest
             '''
       }
     }
