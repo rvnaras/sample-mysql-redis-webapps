@@ -15,7 +15,7 @@ pipeline {
       steps {
             sh '''
               echo 'building deployment image'
-              sudo docker build -f ./apps/Dockerfile.apps -t ravennaras/wlb:webapp-$GIT_COMMIT_SHORT . --network host
+              docker build -f ./apps/Dockerfile.apps -t ravennaras/wlb:webapp-$GIT_COMMIT_SHORT . --network host
             '''
       }
     }
