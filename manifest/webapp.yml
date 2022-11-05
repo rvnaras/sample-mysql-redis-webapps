@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: ravennaras/wlb:webappv1
+        image: ravennaras/wlb:webapp-latest
         ports:
         - containerPort: 80
           name: webapp
