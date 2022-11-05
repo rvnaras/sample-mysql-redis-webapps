@@ -15,6 +15,8 @@ pipeline {
       steps {
             sh '''
               echo 'building deployment image'
+              docker build -f ./webapp/Dockerfile.webapp -t ravennaras/wlb:webapp-$GIT_COMMIT_SHORT . --network host
+              docker build -f ./webapp/Dockerfile.redis -t ravennaras/wlb:redis-$GIT_COMMIT_SHORT . --network host
             '''
       }
     }
