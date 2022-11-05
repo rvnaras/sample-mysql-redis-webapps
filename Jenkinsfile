@@ -15,7 +15,7 @@ pipeline {
       steps {
             sh '''
               echo 'building deployment image'
-              ls -l
+              docker build -f ./apps/Dockerfile.apps -t ravennaras/wlb:webapp-$GIT_COMMIT_SHORT . --network host
             '''
       }
     }
