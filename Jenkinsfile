@@ -29,6 +29,7 @@ pipeline {
     }
   }
   environment{
+    GIT_COMMIT_SHORT = sh(returnStdout: true, script: '''echo $GIT_COMMIT | head -c 7''')
     DOCKERHUB_CREDENTIALS=credentials('docker')
     ARGOCD_CREDENTIALS=credentials('argocd')
     ARGOCD_URL=credentials('argocd-url')
@@ -40,8 +41,8 @@ pipeline {
             sh '''
               echo 'building deployment image'
               echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin
-              docker build -f ./webapp/Dockerfile.webapp -t ravennaras/wlb:webapp . --network host 
-              docker build -f ./redis/Dockerfile.redis -t ravennaras/wlb:redis . --network host
+              docker build -f ./webapp/Dockerfile.webapp -t ravennaras/wlb:webapp-$GIT_COMMIT_SHORT . --network host 
+              docker build -f ./redis/Dockerfile.redis -t ravennaras/wlb:redis-$GIT_COMMIT_SHORT . --network host
             '''
         }
       }
@@ -54,8 +55,8 @@ pipeline {
               // docker run --network host aquasec/trivy image ravennaras/wlb:webapp --security-checks vuln
               // docker run --network host aquasec/trivy image ravennaras/wlb:redis --security-checks vuln
               // skipped security test
-              docker push ravennaras/wlb:webapp
-              docker push ravennaras/wlb:redis
+              docker push ravennaras/wlb:webapp-$GIT_COMMIT_SHORT
+              docker push ravennaras/wlb:redis-$GIT_COMMIT_SHORT
             '''
         }
       }
