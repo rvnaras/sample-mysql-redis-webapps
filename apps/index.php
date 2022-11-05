@@ -10,7 +10,7 @@
         try {
             $data_source = '';
             $redis = new Redis(); 
-            $redis->connect('redis-svc.default.svc.cluster.local', 6379); 
+            $redis->connect('redis-svc.musyaffadli-production.svc.cluster.local', 6379); 
             $sql = 'select
                     employee_id,
                     first_name,
