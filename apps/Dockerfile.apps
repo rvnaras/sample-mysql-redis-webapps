@@ -4,8 +4,8 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Asia/Jakarta apt-get -y install tzdata
 RUN apt-get -y install php php-redis php-mysql php-common php-xml php-xmlrpc php-curl php-gd php-imagick php-cli php-dev php-imap php-mbstring php-opcache php-soap php-zip php-intl
 WORKDIR /var/www/html
 RUN rm index.html
-COPY index.php /var/www/html
-COPY database_test.php /var/www/html
-COPY info.php /var/www/html
+COPY /apps/index.php /var/www/html
+COPY /apps/database_test.php /var/www/html
+COPY /apps/info.php /var/www/html
 EXPOSE 80
 CMD ["apachectl", "-D", "FOREGROUND"]
