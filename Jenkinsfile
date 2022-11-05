@@ -33,6 +33,10 @@ pipeline {
       steps {
           sh '''
              echo 'deploy to cluster'
+             argocd login $ARGOCD_URL --username $ARGOCD_CREDENTIALS_USR --password $ARGOCD_CREDENTIALS_PSW --insecure
+	           echo argocd login successful
+             argocd app get musyaffadli.com
+             argocd app sync musyaffadli.com
            '''
       }
     }
