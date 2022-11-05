@@ -38,7 +38,7 @@ spec:
       terminationGracePeriodSeconds: 10
       containers:
       - name: redis
-        image: ravennaras/wlb:redis-latest
+        image: ravennaras/wlb:redis
         ports:
         - containerPort: 6379
           name: redis
