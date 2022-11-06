@@ -34,6 +34,7 @@ spec:
       containers:
       - name: webapp
         image: ravennaras/wlb:webapp-latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 80
           name: webapp
