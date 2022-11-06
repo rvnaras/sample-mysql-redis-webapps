@@ -4,7 +4,7 @@
   </head> 
   <body>
     <h1 align = 'center'>Employees' Register</h1>
-    <h2 align = 'center'>Musyaffa Adli Syauqi</h2>
+    <h2 align = 'center'>Musyaffa Adli</h2>
     <table align = 'center' border = '2'>        
     <?php 
         try {
